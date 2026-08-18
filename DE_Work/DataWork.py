@@ -20,7 +20,7 @@ def remove_null_text_rows(df, column):
 Systembook = remove_null_text_rows(Systembook, "Books")
 Customer = remove_null_text_rows(Customer, "Customer Name")
 
-## Function Remove Dupplicates
+## Function Remove Duplicates
 def remove_duplicates(df):
     return df.drop_duplicates()
 
