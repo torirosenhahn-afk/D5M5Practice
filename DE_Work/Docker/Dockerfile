@@ -8,3 +8,7 @@ COPY Requirements.txt .
 RUN pip install --no-cache-dir -r Requirements.txt
 
 CMD ["python3", "DataWork.py"]
+
+# docker build -t hellovol .
+# docker run -v my-data:/app/data hellovol
+# docker build -t hellovol .

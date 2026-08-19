@@ -32,7 +32,7 @@ class TestDataWorkSQL(unittest.TestCase):
         df = pd.DataFrame({
             "Books": [
                 "Book A",
-                "Book B"
+                "Book B",
                 "Book B"
             ]
         })
