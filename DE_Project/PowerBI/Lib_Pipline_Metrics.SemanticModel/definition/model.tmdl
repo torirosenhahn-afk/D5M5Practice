@@ -1,0 +1,21 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-GB
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Pipeline_Metrics"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Pipeline_Metrics
+ref table DateTableTemplate_7d684ffb-e0f6-4825-8014-60b48c7da915
+ref table LocalDateTable_d3314a73-0387-4a2e-80ee-a4843a52df42
+ref table Cals
+
+ref cultureInfo en-US
+

@@ -18,7 +18,7 @@ The source CSV files contained several data quality issues, including:
 To ensure reliable reporting and analysis, an ETL pipeline was developed to cleanse, validate, and standardise the data before loading it into SQL Server.
 
 ## Project Overview
-This project demonstrates an end-to-end ETL (Extract, Transform, Load) process using Python, Pandas, SQL Server, and Unit Testing.
+This project demonstrates an end-to-end ETL (Extract, Transform, Load) process using Python, Pandas and SQL Server.
 The objective is to build a reusable ETL pipeline that:
 
 - Extracts raw data from CSV files
@@ -27,6 +27,8 @@ The objective is to build a reusable ETL pipeline that:
 - Tracks Data Engineering metrics
 - Loads the transformed data into SQL Server
 - Provides a reporting layer for Power BI
+- Delivers a Power-Bi on the Pipline Metrics
+- Forms the foundation for a future reporting data mart.
 
 ## Stakeholders/End users
 - The primary stakeholders for this solution are:
@@ -36,13 +38,16 @@ The objective is to build a reusable ETL pipeline that:
 - Data Engineers, who monitor pipeline performance and data quality through operational metrics.
 
 ## Solution Architecture Diagram in Project Folder
+![Architecture_Diagram.png](Architecture_Diagram.png)
 
-SQL Server Outputs
-
+## SQL Server Outputs
 The ETL pipeline loads three tables into SQL Server: 
 1. Systembook_Clean (Contains cleansed and transformed book transaction data.)
 2. Customer_Clean (Contains cleansed customer master data.)
 3. Pipeline_Metrics (Contains operational and data quality metrics generated during each pipeline execution.)
+
+## ERD in Project Folder
+![Entitiy_Relationship_Diagram](Entitiy_Relationship_Diagram)
 
 ### DE Metrics
 To improve observability and provide operational reporting, the pipeline captures Data Engineering metrics during every execution.
@@ -66,7 +71,6 @@ Each pipeline run generates:
 - Power BI
 
 ## Future Improvements
-
 - Advanced error handling
 - Additional data validation rules
 - Audit tables

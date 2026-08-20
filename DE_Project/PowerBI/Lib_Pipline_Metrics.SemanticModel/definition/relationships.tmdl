@@ -1,0 +1,5 @@
+relationship 46537ab8-c17b-4a89-921d-0e8fd5b2e320
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Pipeline_Metrics.RunTimestamp
+	toColumn: LocalDateTable_d3314a73-0387-4a2e-80ee-a4843a52df42.Date
+

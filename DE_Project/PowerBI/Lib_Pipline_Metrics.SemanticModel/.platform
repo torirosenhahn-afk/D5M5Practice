@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Lib_Pipline_Metrics"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "09d22e95-c693-4225-9cf6-cf7f5352312d"
+  }
+}

@@ -1,0 +1,58 @@
+table Cals
+	lineageTag: af1f31d2-db36-4146-ba2d-72383ecee46f
+
+	measure 'Total Records' =
+			
+			SUM(Pipeline_Metrics[Value])
+		lineageTag: 1cbebd11-6334-4561-b603-9a5f8f5f4d0c
+
+	measure 'Last Runtime' = MAX(Pipeline_Metrics[RunTimestamp])
+		formatString: General Date
+		lineageTag: d65c254b-9403-426c-87fc-372b0f19c52b
+
+	measure 'Last User' = MAX(Pipeline_Metrics[RunID])
+		lineageTag: 113e9085-dc31-4273-a8f9-06f0df54ab99
+
+	measure 'Hours since Last Run' =
+			
+			DATEDIFF(
+			    MAX(Pipeline_Metrics[RunTimestamp]),
+			    NOW(),
+			    HOUR
+			)
+		formatString: 0
+		lineageTag: a629ec74-7382-476f-bc22-db32a375df3d
+
+	measure 'Total Records from Last Run' =
+			
+			VAR LatestRun =
+			CALCULATE(
+			    MAX(Pipeline_Metrics[RunTimestamp]),
+			    ALL(Pipeline_Metrics)
+			)
+			RETURN
+			CALCULATE(
+			    SUM(Pipeline_Metrics[Value]),
+			    Pipeline_Metrics[RunTimestamp] = LatestRun,
+			    Pipeline_Metrics[Metric] = "RowsReceived"
+			)
+		formatString: 0
+		lineageTag: 0f2af563-a92d-4f6b-beb4-a06f3bf63de0
+
+	column Column
+		formatString: 0
+		lineageTag: dc5ea09a-2d07-4526-91e2-dca20286e0e4
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Cals = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 0acb5fbcdd0b4e778a10255bbcaef927
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+
